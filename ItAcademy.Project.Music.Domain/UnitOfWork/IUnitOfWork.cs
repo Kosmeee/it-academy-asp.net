@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+
 namespace ItAcademy.Project.Music.Domain.UnitOfWork
 {
-    
-        public interface IUnitOfWork
-        {
+    public interface IUnitOfWork
+    {
             DbSet<TEntity> Set<TEntity>()
                 where TEntity : class;
 
@@ -12,6 +12,5 @@ namespace ItAcademy.Project.Music.Domain.UnitOfWork
                where TEntity : class;
 
             int SaveChanges();
-        }
-    
+    }
 }

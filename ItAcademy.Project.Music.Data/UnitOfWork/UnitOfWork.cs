@@ -1,11 +1,10 @@
-﻿
+﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using ItAcademy.Project.Music.Data.Context;
 using ItAcademy.Project.Music.Domain.UnitOfWork;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+
 namespace ItAcademy.Project.Music.Data.UnitOfWork
 {
-   
         public class UnitOfWork : IUnitOfWork
         {
             private readonly IMusDbContext db;
@@ -24,18 +23,12 @@ namespace ItAcademy.Project.Music.Data.UnitOfWork
             public DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity)
                 where TEntity : class
             {
-                return db.Entry<TEntity>(entity);
+                return db.Entry(entity);
             }
 
             public int SaveChanges()
             {
-
                 return db.SaveChanges();
-
-
-
-
             }
         }
     }
-}

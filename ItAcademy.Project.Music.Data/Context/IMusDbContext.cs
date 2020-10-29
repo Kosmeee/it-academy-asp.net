@@ -1,9 +1,9 @@
-﻿using System.Data.Entity.Infrastructure;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace ItAcademy.Project.Music.Data.Context
 {
-   public interface IMusDbContext
+    public interface IMusDbContext
     {
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;

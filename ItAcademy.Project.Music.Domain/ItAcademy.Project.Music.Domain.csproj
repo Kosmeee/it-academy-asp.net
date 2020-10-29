@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\..\Downloads\Telegram Desktop\StyleCop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,6 +41,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,21 +58,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainServices\AlbumDomainService.cs" />
+    <Compile Include="DomainServices\AppUserDomainService.cs" />
+    <Compile Include="DomainServices\ArtistDomainService.cs" />
+    <Compile Include="DomainServices\GenreDomainService.cs" />
+    <Compile Include="DomainServices\Interfaces\IAlbumDomainService.cs" />
+    <Compile Include="DomainServices\Interfaces\IAppUserDomainService.cs" />
+    <Compile Include="DomainServices\Interfaces\IArtistDomainService.cs" />
+    <Compile Include="DomainServices\Interfaces\IGenreDomainService.cs" />
+    <Compile Include="DomainServices\Interfaces\IPlaylistDomainService.cs" />
+    <Compile Include="DomainServices\Interfaces\ITrackDomainService.cs" />
+    <Compile Include="DomainServices\PlaylistDomainService.cs" />
+    <Compile Include="DomainServices\TrackDomainService.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Identity\ApplicationRole.cs" />
+    <Compile Include="Models\Identity\ApplicationUser.cs" />
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Track.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAlbumRepository.cs" />
+    <Compile Include="Repositories\IAppUserRepository.cs" />
+    <Compile Include="Repositories\IArtistRepository.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
+    <Compile Include="Repositories\IGenreRepository.cs" />
+    <Compile Include="Repositories\IPlaylistRepository.cs" />
+    <Compile Include="Repositories\ITrackRepository.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
