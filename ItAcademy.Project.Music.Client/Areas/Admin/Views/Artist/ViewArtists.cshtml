@@ -1,0 +1,42 @@
+﻿@using ItAcademy.Project.Music.Client.Models
+@model List<ViewArtist>
+@Styles.Render("~/Content/css");
+@Html.ActionLink("Create", "Add", null, new { @class = "btn btn-primary" })
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th scope="col">Nickname</th>
+            <th scope="col">Image</th>
+            <th scope="col">Genre</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @{ 
+            foreach (var a in Model)
+            {
+
+
+
+
+
+                <tr>
+                    <th scope="row">@a.Nickname</th>
+
+                    <td>@a.Image</td>
+                    <td>@a.Genre.Title</td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = a.Id }, null)
+                        @Html.ActionLink("Delete", "Delete", new { id = a.Id }, null)
+                    </td>
+                </tr>
+
+
+            }
+        }
+
+    </tbody>
+</table>

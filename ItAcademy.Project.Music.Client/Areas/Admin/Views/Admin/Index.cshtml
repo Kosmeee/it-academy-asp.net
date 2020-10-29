@@ -1,0 +1,53 @@
+﻿@{ 
+    Layout = "";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+    </script>
+</head>
+<body>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Tracks</a></li>
+            <li><a href="#tabs-2">Artists</a></li>
+            <li><a href="#tabs-3">Albums</a></li>
+            <li><a href="#tabs-4">Playlists</a></li>
+            <li><a href="#tabs-5">Users</a></li>
+            <li><a href="#tabs-6">Genres</a></li>
+        </ul>
+        <div id="tabs-1">
+            @{Html.RenderAction("ViewAll", "Track"); }
+
+        </div>
+        <div id="tabs-2">
+            @{Html.RenderAction("ViewAll", "Artist"); }
+        </div>
+        <div id="tabs-3">
+            Albums
+        </div>
+        <div id="tabs-4">
+            Playlists
+        </div>
+        <div id="tabs-5">
+            Users
+        </div>
+        <div id="tabs-6">
+            Genres
+        </div>
+    </div>
+
+
+</body>
+</html>

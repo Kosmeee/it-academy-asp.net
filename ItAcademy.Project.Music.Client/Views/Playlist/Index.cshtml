@@ -1,0 +1,26 @@
+﻿@using ItAcademy.Project.Music.Domain.Models
+@model Playlist
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+@{
+    foreach (Track a in Model.Tracks)
+    {
+        <li class="playlist-number">
+            <!-- song information -->
+            <div class="song-info">
+                <!-- song title -->
+                <h4>@a.Title</h4>
+                <p><strong>Album</strong>: @a.Album.Title &nbsp;|&nbsp; <strong>Type</strong>: @a.Genre.Title &nbsp;|&nbsp; <strong>Singer</strong>: @a.Artist.Nickname</p>
+            </div>
+            <!-- music icon -->
+            <div class="music-icon">
+                <a class="playing" href="#" onclick="change('@a.Url')"><i class="fa fa-play"></i></a>
+
+            </div>
+            <div class="clearfix"></div>
+        </li>
+    }
+}

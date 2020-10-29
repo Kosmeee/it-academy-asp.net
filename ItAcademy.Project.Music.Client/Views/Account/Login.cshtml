@@ -1,0 +1,33 @@
+﻿@using ItAcademy.Project.Music.Client.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<div class="form-content ">
+    <!-- paragraph -->
+    <form role="form" id="contactForm" method="post">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 mx-auto">
+                <div class="form-group">
+                    <label for="name">Nickname</label>
+                    @Html.EditorFor(a => a.Nickname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nickname, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Password</label>
+                    @Html.EditorFor(a => a.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>              
+                    <button type="submit" class="btn btn-primary mx-auto">Login</button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
